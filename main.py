@@ -18,6 +18,7 @@ class tanmay_bhat:
         sleep(3)
         self.bot.find_element_by_xpath('//input[@type="password"]').send_keys(self.password)
         self.bot.find_element_by_xpath('//*[@id="passwordNext"]').click()
+        sleep(5)
         print("\nLoggedin Successfully!\n")
         sleep(2)
         self.bot.get('https://www.youtube.com/c/TanmayBhatYouTube/videos')
