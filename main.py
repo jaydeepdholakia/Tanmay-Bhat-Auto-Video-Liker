@@ -6,6 +6,8 @@ class tanmay_bhat:
         self.bot = webdriver.Chrome('driver/chromedriver.exe')
         self.username = username
         self.password = password
+    def __repr__(self):
+        return (self.username,self.password)
 
     def login(self):
         bot = self.bot
