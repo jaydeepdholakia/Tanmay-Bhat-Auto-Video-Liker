@@ -1,5 +1,6 @@
 from selenium import webdriver
 from time import sleep
+from selenium.webdriver.common.keys import Keys
 
 class tanmay_bhat:
     def __init__(self, username, password):
@@ -52,6 +53,23 @@ class tanmay_bhat:
                 sleep(0.5)
             elif check_liked.get_attribute("class") == 'style-scope ytd-menu-renderer force-icon-button style-default-active':
                 print("Video already liked. You are a good Bot Army Member\n")
+	    
+            #comment code
+            sleep(2)
+            bot.execute_script("window.scrollTo(0, 500);")
+            
+            #Activate the comment box
+            commentBox = bot.find_element_by_id('placeholder-area')
+            commentBox.click()
+            sleep(4)
+            comment = "TANMAY OP \n BOT ARMY OP !!!"
+            
+            #Send the keys to the input field
+            inputBox = bot.find_element_by_id('contenteditable-root')
+            inputBox.send_keys(comment)
+            inputBox.send_keys(Keys.CONTROL, Keys.ENTER)
+            sleep(4)
+            print("Comment successfully added \n")
 
 print("HI BOT ARMYYYYYYY! How you doing?\nToday is the time to make our PROVIDER (BOT LEADER) proud by liking all his videos!\n\nLet's make hime proud!!\n\n")
 username = str(input("Enter your YouTube/Google Email ID: "))
