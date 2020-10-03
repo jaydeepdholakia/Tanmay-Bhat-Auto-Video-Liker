@@ -4,7 +4,7 @@ from time import sleep
 from getpass import getpass
 
 class tanmay_bhat:
-    def __init__(self, username, password):
+    def __init__(self, username, password, channel_addr):
 
         try:
             #Check for Chrome webdriver in Windows
@@ -19,6 +19,7 @@ class tanmay_bhat:
 
         self.username = username
         self.password = password
+        self.channel_addr = channel_addr
 
     def login(self):
         bot = self.bot
@@ -33,7 +34,7 @@ class tanmay_bhat:
         self.bot.find_element_by_xpath('//*[@id="passwordNext"]').click()
         print("\nLoggedin Successfully!\n")
         sleep(2)
-        self.bot.get('https://www.youtube.com/c/TanmayBhatYouTube/videos')
+        self.bot.get(self.channel_addr + "/videos")
 
     def start_liking(self):
         bot = self.bot
@@ -66,10 +67,21 @@ class tanmay_bhat:
             elif check_liked.get_attribute("class") == 'style-scope ytd-menu-renderer force-icon-button style-default-active':
                 print("Video already liked. You are a good Bot Army Member\n")
 
+
+
 print("HI BOT ARMYYYYYYY! How you doing?\nToday is the time to make our PROVIDER (BOT LEADER) proud by liking all his videos!\n\nLet's make hime proud!!\n\n")
-username = str(input("Enter your YouTube/Google Email ID: "))
+
+
+print("Enter the link of the channel or just hit [ENTER] key for default Tanmay's Channel")
+channel_addr = str(input("Channel Link: "))
+
+username = str(input("\nEnter your YouTube/Google Email ID: "))
 password = str(getpass("Enter your password: "))
-bot_army = tanmay_bhat(username,password)
+
+if not channel_addr:
+    channel_addr = "https://www.youtube.com/c/TanmayBhatYouTube"
+
+bot_army = tanmay_bhat(username, password, channel_addr)
 bot_army.login()
 bot_army.start_liking()
 print("\n\nALL VIDEOS ARE LIKED!!! YOU CAN NOW OFFICIALLY CALL YOURSELF:\nA PROUD BOT ARMY MEMBERRRRR!!!!!!\n\n\nPress any key to end")
