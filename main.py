@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.common.exceptions import *
 from time import sleep
 from getpass import getpass
+import tkinter as tk
+from tkinter import messagebox
 
 class tanmay_bhat:
     def __init__(self, username, password, channel_addr):
@@ -69,8 +71,55 @@ class tanmay_bhat:
 
 
 
-print("HI BOT ARMYYYYYYY! How you doing?\nToday is the time to make our PROVIDER (BOT LEADER) proud by liking all his videos!\n\nLet's make hime proud!!\n\n")
 
+#**************************************************     GUI AREA     **********************************************
+
+def start():
+    if email_entry.get() and  password_entry.get() and url_entry.get():
+        bot_army = tanmay_bhat(email_entry.get(), password_entry.get(), url_entry.get())
+        root.destroy()
+        bot_army.login()
+        bot_army.start_liking()
+    else:
+        messagebox.showinfo('Notice', 'Please fill all the entries to proceed furthur')
+
+def tanmay_url_inject():
+    url_entry.delete(0, tk.END)
+    url_entry.insert(0, "https://www.youtube.com/c/TanmayBhatYouTube")
+
+root = tk.Tk()           
+root.resizable(False, False)
+root.geometry('%dx%d+%d+%d' % (760, 330, (root.winfo_screenwidth()/2) - (760/2), (root.winfo_screenheight()/2) - (330/2)))
+
+frame = tk.Frame(root, height=330, width=760)
+head_label = tk.Label(frame, text='Youtube Video Liker', font=('verdana', 25))
+email_label = tk.Label(frame, text='Email: ', font=('verdana', 15))
+password_label = tk.Label(frame, text='Password: ', font=('verdana', 15))
+email_entry = tk.Entry(frame, font=('verdana', 15))
+password_entry = tk.Entry(frame, font=('verdana', 15), show="*")
+url_label = tk.Label(frame, text='Channel\nURL', font=('verdana', 15))
+url_entry = tk.Entry(frame, font=('verdana', 15))
+tanmay_button = tk.Button(frame, text='Tanmay\nBhatt', font=('verdana', 15), command=tanmay_url_inject)
+start_button = tk.Button(frame, text='Start Liking', font=('verdana', 20), command=start)
+
+frame.pack()
+head_label.place(y=15, relx=0.32)
+email_label.place(x=15, y=95, anchor='w')
+password_label.place(x=15, y=130, anchor='w')
+email_entry.place(x=140, y=78, width=600)
+password_entry.place(x=140, y=115, width=600)
+url_label.place(x=15, y=190, anchor='w')
+url_entry.place(x=140, y=175, width=600)
+tanmay_button.place(x=400, y=240)
+start_button.place(x=550, y=250)
+root.mainloop()
+
+
+
+#Comment out the GUI area and uncomment the Console Area to use Console controls
+#**********************************************   Console Area    *******************************************
+"""
+print("HI BOT ARMYYYYYYY! How you doing?\nToday is the time to make our PROVIDER (BOT LEADER) proud by liking all his videos!\n\nLet's make hime proud!!\n\n")
 
 print("Enter the link of the channel or just hit [ENTER] key for default Tanmay's Channel")
 channel_addr = str(input("Channel Link: "))
@@ -86,3 +135,4 @@ bot_army.login()
 bot_army.start_liking()
 print("\n\nALL VIDEOS ARE LIKED!!! YOU CAN NOW OFFICIALLY CALL YOURSELF:\nA PROUD BOT ARMY MEMBERRRRR!!!!!!\n\n\nPress any key to end")
 input()
+"""
