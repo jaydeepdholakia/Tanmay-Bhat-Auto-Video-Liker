@@ -1,10 +1,22 @@
 from selenium import webdriver
+from selenium.common.exceptions import *
 from time import sleep
 from getpass import getpass
 
 class tanmay_bhat:
     def __init__(self, username, password):
-        self.bot = webdriver.Chrome('/usr/bin/chromedriver')
+
+        try:
+            #Check for Chrome webdriver in Windows
+            self.bot = webdriver.Chrome('driver/chromedriver.exe')
+        except WebDriverException:
+            try: 
+                #Check for Chrome webdriver in Linux
+                self.bot = webdriver.Chrome('/usr/bin/chromedriver') 
+            except WebDriverException:
+                print("Please set Chrome Webdriver path above")
+                exit()
+
         self.username = username
         self.password = password
 
