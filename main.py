@@ -1,9 +1,10 @@
 from selenium import webdriver
 from time import sleep
+from getpass import getpass
 
 class tanmay_bhat:
     def __init__(self, username, password):
-        self.bot = webdriver.Chrome('driver/chromedriver.exe')
+        self.bot = webdriver.Chrome('/usr/bin/chromedriver')
         self.username = username
         self.password = password
 
@@ -55,7 +56,7 @@ class tanmay_bhat:
 
 print("HI BOT ARMYYYYYYY! How you doing?\nToday is the time to make our PROVIDER (BOT LEADER) proud by liking all his videos!\n\nLet's make hime proud!!\n\n")
 username = str(input("Enter your YouTube/Google Email ID: "))
-password = str(input("Enter your password: "))
+password = str(getpass("Enter your password: "))
 bot_army = tanmay_bhat(username,password)
 bot_army.login()
 bot_army.start_liking()
