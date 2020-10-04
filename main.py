@@ -1,5 +1,8 @@
 from selenium import webdriver
 from selenium.common.exceptions import *
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 from getpass import getpass
 import tkinter as tk
@@ -34,6 +37,7 @@ class tanmay_bhat:
         sleep(3)
         self.bot.find_element_by_xpath('//input[@type="password"]').send_keys(self.password)
         self.bot.find_element_by_xpath('//*[@id="passwordNext"]').click()
+        WebDriverWait(self.bot, 900).until(EC.presence_of_element_located((By.XPATH, "/html/body/header/div/div[1]/a[2]/span")))
         print("\nLoggedin Successfully!\n")
         sleep(2)
         self.bot.get(self.channel_addr + "/videos")
@@ -115,10 +119,10 @@ start_button.place(x=550, y=250)
 root.mainloop()
 
 
-
-#Comment out the GUI area and uncomment the Console Area to use Console controls
-#**********************************************   Console Area    *******************************************
 """
+Comment out the GUI area and uncomment the Console Area to use Console controls
+**********************************************   Console Area    *******************************************
+
 print("HI BOT ARMYYYYYYY! How you doing?\nToday is the time to make our PROVIDER (BOT LEADER) proud by liking all his videos!\n\nLet's make hime proud!!\n\n")
 
 print("Enter the link of the channel or just hit [ENTER] key for default Tanmay's Channel")
@@ -129,6 +133,7 @@ password = str(getpass("Enter your password: "))
 
 if not channel_addr:
     channel_addr = "https://www.youtube.com/c/TanmayBhatYouTube"
+
 
 bot_army = tanmay_bhat(username, password, channel_addr)
 bot_army.login()
