@@ -1,12 +1,42 @@
-# Tanmay-Bhat-Auto-Video-Liker
-A bot which likes all the videos of the bot army leader "Tanmay Bhat"
+# Tanmay Bhat Auto Video Liker
+Tanmay Bhat Auto Video Liker is a bot which likes all the YouTube videos of the bot army leader "Tanmay Bhat" the open-source project programmed using python3. [Click Here](https://www.python.org/downloads/), if you don't have python3 installed on your device.
 
-## How to use it:
-If you just want to download and run it without any technical details then just download the zip file here named Bot OP and extract it. Once extracted, just go and run the file named "Bot OP.exe" and you will be good to go.
-NOTE: Please make sure you run the file where there is the folder named 'driver'. Only then it will work properly.
+To check whether you have python3 installed on your device, open cmd or terminal and type following command.
+```bash
+python --version
+```
 
-## Dependencies:
-Selenium: 3.141.0
-Python: 3.7.6
+If you get Python 3.x.x, you are good with the installation, if it doesn't work follow the [guide](https://realpython.com/installing-python/).
 
-Feel free to fork this repository and make changes like add GUI using Tkinter or create a web app for it. You can make Pull Requests if you want to make any changes to this project.
+To get this work, you need to have google-chrome installed on your device so, if you don't have it installed on your device [Click Here](https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=en)
+
+
+## For Non-Technical Audience
+1. Download the zip file, named [Bot OP.zip]("Bot\ OP.zip" "Bot OP's Download Page").
+2. Extract the zip file. [Guide to extract zip file]("https://www.cedarville.edu/insights/blog/extract-files-from-a-zipped-compressed-folder.aspx "Unzip folder").
+3. Run the file named __Bot OP.exe__ and you'll be good to go.
+
+**NOTE*: *Please make sure you run the file where there is the folder named 'driver'. Only then it will work properly.*
+
+## For Others
+1. Clone the project
+```git
+git clone https://github.com/h3cksamrat/Tanmay-Bhat-Auto-Video-Liker.git
+```
+2. Redirect to the directory
+```bash
+cd Tanmay-Bhat-Auto-Video-Liker
+```
+3. Create python virtual environment to avoid conflicts of packages.
+```bash
+python -m venv <name_of_venv>
+source <name_of_venv>/bin/activate
+```
+4. Install all the dependencies.
+```bash
+pip install -r requirements.txt
+```
+5. Run the program.
+```bash
+python main.py
+```
